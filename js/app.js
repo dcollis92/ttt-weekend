@@ -10,6 +10,21 @@ const players = {
   }
 };
 
+const winningCombos = [
+  [sq0, sq1, sq2],
+  [sq3, sq4, sq5],
+  [sq6, sq7, sq8],
+  [sq0, sq3, sq6],
+  [sq1, sq4, sq7],
+  [sq2, sq5, sq8],
+  [sq0, sq4, sq8],
+  [sq6, sq4, sq2],
+]
+console.log(winningCombos)
+
+
+
+
 /*---------------------------- Variables (state) ----------------------------*/
 let squares, turn, winner
 
@@ -24,15 +39,13 @@ const resetButton = document.querySelector('#reset-button')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-console.log(boardSquares)
+// console.log(boardSquares)
 
-boardSquares
-.forEach(square => 
-  square.addEventListener('click', handleClick))
+boardSquares.forEach(square => square.addEventListener('click', handleClick))
 
 
 /*-------------------------------- Functions --------------------------------*/
-init()
+//init()
 // 3.1
 
 function init () {
