@@ -76,7 +76,14 @@ function handleClick (event) {
 }
 
 function checkWinner() {
-  
+  if (!isWinner) {
+    // indicate whose turn it is
+  } else if (winner === "T") {
+    // indicate a tie game
+  } else {
+    // congrats to the winner!
+    gameMessage.textContent ='Congrats '
+  }
 }
 
 
