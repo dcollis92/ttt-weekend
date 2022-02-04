@@ -16,7 +16,9 @@ let winner
 
 /*------------------------ Cached Element References ------------------------*/
 const allSquares = document.querySelector('.class')
+// 2.1
 const gameStatus = document.querySelector('#message')
+// 2.2
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -26,3 +28,11 @@ const gameStatus = document.querySelector('#message')
 /*-------------------------------- Functions --------------------------------*/
 init()
 // 3.1
+
+function init () {
+
+  // 3.2.1
+
+  squares = []
+
+}
