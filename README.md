@@ -29,9 +29,9 @@
 	  <!-- // 3.2.4) render state variables, call a render function. -->
 
 	// 3.3) render function should:
-	  // X 3.3.1) LOOP over board array, for each iteration:
-		  // X 3.3.1.1) index of the iteration to access the square in the squares array that corresponds with the current cell being iterated over in the board array
-		  // 3.3.1.2) Style square dependant on the value inside current cell being iterated over (-1, 1, or null)
+	  <!-- // X 3.3.1) LOOP over board array, for each iteration: -->
+		  <!-- // X 3.3.1.1) index of the iteration to access the square in the squares array that corresponds with the current cell being iterated over in the board array -->
+		  <!-- // 3.3.1.2) Style square dependant on the value inside current cell being iterated over (-1, 1, or null) -->
 	  // 3.3.2) Render message on currrent game state:
 	    // 3.3.2.1) If winner != null (game still in progress), render whose turn it is.
 	      // Hint: Use ternary inside of a template literal
