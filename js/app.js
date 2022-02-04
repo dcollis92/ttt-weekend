@@ -10,7 +10,9 @@ const players = {
   }
 };
 
-const winningCombos = [
+console.log(players)
+
+const winningCombos = [ // 4.1 Array of Arrays
   [sq0, sq1, sq2],
   [sq3, sq4, sq5],
   [sq6, sq7, sq8],
@@ -23,57 +25,51 @@ const winningCombos = [
 console.log(winningCombos)
 
 
-
-
 /*---------------------------- Variables (state) ----------------------------*/
-let squares, turn, winner
-
-
+let squares, turn, winner;
+    // 1.1 // 1.2 // 1.3
 
 /*------------------------ Cached Element References ------------------------*/
-const boardSquares = document.querySelectorAll('.square')
-// 2.1
-const gameStatus = document.querySelector('#message')
-// 2.2
-const resetButton = document.querySelector('#reset-button')
+const squaresArray = document.querySelectorAll('.square') // 2.1 Squares Array
+const gameStatus = document.querySelector('#message') // 2.2
+const resetButton = document.querySelector('#reset-button') // 6.2
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-// console.log(boardSquares)
+console.log(squaresArray)
 
-boardSquares.forEach(square => square.addEventListener('click', handleClick))
+squaresArray.forEach(square => square.addEventListener('click', handleClick)) // 3.2.1
 
 
 /*-------------------------------- Functions --------------------------------*/
-//init()
-// 3.1
+init() // 3.1
 
-function init () {
-    // gameStatus.className = ""
-    boardSquares = [null, null, null, null, null, null, null, null, null]
-    console.log(boardSquares)
+function init() {
+    boardArray = [null, null, null, null, null, null, null, null, null]
+    turn = 1 // 3.2.2
+    winner = null // 3.2.3
+    render () // 3.2.4
+    //console.log(boardArray)
+}
 
-  //resetButton.setAttribute("hidden", true)
-  
-  // 3.2.1
-//   let squares = boardSquares
-//   .map(square => )
- 
-// }
- 
-} 
+function render() {
+	boardArray.forEach((square, idx) => {
+    //console.log(squaresArray[idx], square, idx)
+    if (square === 1) {
+      squaresArray[idx].textContent = 'X'
+      squaresArray[idx].style.backgroundColor = 'red';
+    } else if (square === -1) {
+      squaresArray[idx].textContent = 'O'
+      squaresArray[idx].style.backgroundColor = 'blue';
+    } else if (square === null) {
+      squaresArray[idx].textContent = ''
+    }
+  });
+   
+}
 
 function handleClick (event) {
   console.log(event.target.id)
 }
 
-function render() {
-	renderHands();
-	renderControls();
-	if (winner) {
-		renderWinnerMessage();
-	} else {
-		renderTurnMessage();
-	}
-}
-/* adjust per example above */
+

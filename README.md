@@ -6,31 +6,31 @@
 // X 1) Required Variables = state of the game 
   // X  No variables need a value when defined 
 	
-  // X 1.1) Array = squares;   
-	// X 1.2) Turn Variable = whose turn it is;
-	// X 1.3) Winner Variable = three game states:
+  <!-- // 1.1) Array = squares;    -->
+	<!-- // 1.2) Turn Variable = whose turn it is; -->
+	<!-- // 1.3) Winner Variable = three game states: -->
 	       // (not defined) a player won; a tie; game still in play;
 
 // 2) Cached Element References 
-	// X 2.1) 9 elements = squares (each square a class name)
-  // X 2.2) element that displays the game status
+	<!--// 2.1) 9 elements = squares (each square a class name) -->
+  <!-- // 2.2) element that displays the game status -->
 
 // 3) Upon loading, the app should:
-  // X 3.1) init();
+  <!-- // X 3.1) init(); -->
 
-  // 3.2) function: init() state variables: (Array, Turn Variable, Winner Variable)
-	  // X 3.2.1) Initialize Array to 9 nulls (empty squares) 
-	    //      (( 9 elements, each square: [0] = top-left square,    ))
-      //      (( 1] = top-middle square...[8] = bottom-right square ))
-	  // 3.2.2) Initialize Turn to = (player 'X' = 1), (player 'O' = -1)
-	  // 3.2.3) Initialize Winner Variable = to null (no winner or tie)
+  <!-- // 3.2) function: init() state variables: (Array, Turn Variable, Winner Variable) -->
+	  <!-- // 3.2.1) Initialize Array to 9 nulls (empty squares)  -->
+	    <!-- //      (( 9 elements, each square: [0] = top-left square,    ))
+      //      (( 1] = top-middle square...[8] = bottom-right square )) -->
+	  <!-- // 3.2.2) Initialize Turn to = (player 'X' = 1), (player 'O' = -1) -->
+	  <!-- // 3.2.3) Initialize Winner Variable = to null (no winner or tie) -->
 	  //        Winner Variable holds player value (1 or -1),
       //      if there's a winner; 'T' if there's a tie.
-	  // 3.2.4) render state variables, call a render function.
+	  <!-- // 3.2.4) render state variables, call a render function. -->
 
 	// 3.3) render function should:
-	  // 3.3.1) LOOP over board array, for each iteration:
-		  // 3.3.1.1) index of the iteration to access the square in the squares array that corresponds with the current cell being iterated over in the board array
+	  // X 3.3.1) LOOP over board array, for each iteration:
+		  // X 3.3.1.1) index of the iteration to access the square in the squares array that corresponds with the current cell being iterated over in the board array
 		  // 3.3.1.2) Style square dependant on the value inside current cell being iterated over (-1, 1, or null)
 	  // 3.3.2) Render message on currrent game state:
 	    // 3.3.2.1) If winner != null (game still in progress), render whose turn it is.
@@ -43,9 +43,9 @@
 
 // 4) Define the required constants:
 
-	// 4.1) Define the 8 possible winning combinations as an array of arrays.
-	  // Each array will contain three indexes of the board that make a winner if they hold the same player value. 
-		// If stuck: winningCombos array in the solution code. 
+	<!-- // X 4.1) Define the 8 possible winning combinations as an array of arrays. -->
+	  <!-- // X Each array will contain three indexes of the board that make a winner if they hold the same player value.  -->
+		<!-- // X If stuck: winningCombos array in the solution code.  -->
 
 // 5) Wait for click on a square, call a handleClick function
   // handleClick function will...
@@ -86,9 +86,9 @@
 
 // 5.7) All state has been updated, render the state to the page (step 3.3).
 
-// 6) Handle a player clicking the replay button:
-  // 6.1) Add a replay button to the HTML document
-  // 6.2) Store the new replay button element
+// 6) Handle a player clicking the reset button:
+  <!-- // 6.1) Add a reset button to the HTML document -->
+  <!-- // 6.2) Store the new reset button element -->
   // 6.3) Do steps 4.1 (initialize the state variables) and 4.2 (render).
 
 // AAU, I should see a tic tac toe board open on the page
