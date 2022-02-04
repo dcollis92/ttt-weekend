@@ -1,6 +1,14 @@
 /*-------------------------------- Constants --------------------------------*/
-
-
+const players = {
+  '1': {
+    name: 'playerX',
+    score: 0
+  },
+  '-1': {
+    name: 'playerO',
+    score: 0
+  }
+};
 
 /*---------------------------- Variables (state) ----------------------------*/
 let squares
@@ -38,3 +46,13 @@ function init () {
  
 }
 
+function render() {
+	renderHands();
+	renderControls();
+	if (winner) {
+		renderWinnerMessage();
+	} else {
+		renderTurnMessage();
+	}
+}
+// adjust per example above
