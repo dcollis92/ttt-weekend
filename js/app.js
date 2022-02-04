@@ -13,13 +13,12 @@ let winner
 
 
 
-
 /*------------------------ Cached Element References ------------------------*/
-const allSquares = document.querySelector('.class')
+const allSquares = document.querySelector('.square')
 // 2.1
 const gameStatus = document.querySelector('#message')
 // 2.2
-
+const resetButton = document.querySelector('#reset-button')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -30,9 +29,12 @@ init()
 // 3.1
 
 function init () {
-
+    gameStatus.className = ""
   // 3.2.1
 
+  resetButton.setAttribute("hidden", true)
   squares = []
-
+  winner = false
+ 
 }
+
