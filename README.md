@@ -19,10 +19,10 @@
   // X 3.1) init();
 
   // 3.2) function: init() state variables: (Array, Turn Variable, Winner Variable)
-	  // 3.2.1) Initialize Array to 9 nulls (empty squares) 
+	  // X 3.2.1) Initialize Array to 9 nulls (empty squares) 
 	    //      (( 9 elements, each square: [0] = top-left square,    ))
       //      (( 1] = top-middle square...[8] = bottom-right square ))
-	  // 3.2.2) Initialize Turn to = (player 'X' = 1), (layer 'O' = -1)
+	  // 3.2.2) Initialize Turn to = (player 'X' = 1), (player 'O' = -1)
 	  // 3.2.3) Initialize Winner Variable = to null (no winner or tie)
 	  //        Winner Variable holds player value (1 or -1),
       //      if there's a winner; 'T' if there's a tie.
@@ -91,4 +91,10 @@
   // 6.2) Store the new replay button element
   // 6.3) Do steps 4.1 (initialize the state variables) and 4.2 (render).
 
-  
+// AAU, I should see a tic tac toe board open on the page
+// AAU, I should be given directions to start the game.
+// AAU, I should be able to select a square and put an X or an O. 
+// AAU, I should not be able to change a square's value once selected
+// AAU, I should be able to complete the game
+// AAU, If there is a tie, I should be told the game ends in a tie
+// AAU, I should be given a chance to reset and play again

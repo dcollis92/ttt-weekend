@@ -11,18 +11,12 @@ const players = {
 };
 
 /*---------------------------- Variables (state) ----------------------------*/
-let squares
-// 1.1
-let turn
-// 1.2
-let winner
-// 1.3
-
+let squares, turn, winner
 
 
 
 /*------------------------ Cached Element References ------------------------*/
-const allSquares = document.querySelector('.square')
+const boardSquares = document.querySelectorAll('.square')
 // 2.1
 const gameStatus = document.querySelector('#message')
 // 2.2
@@ -30,6 +24,11 @@ const resetButton = document.querySelector('#reset-button')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
+console.log(boardSquares)
+
+boardSquares
+.forEach(square => 
+  square.addEventListener('click', handleClick))
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -37,13 +36,22 @@ init()
 // 3.1
 
 function init () {
-    gameStatus.className = ""
-  // 3.2.1
+    // gameStatus.className = ""
+    boardSquares = [null, null, null, null, null, null, null, null, null]
+    console.log(boardSquares)
 
-  resetButton.setAttribute("hidden", true)
-  squares = []
-  winner = false
+  //resetButton.setAttribute("hidden", true)
+  
+  // 3.2.1
+//   let squares = boardSquares
+//   .map(square => )
  
+// }
+ 
+} 
+
+function handleClick (event) {
+  console.log(event.target.id)
 }
 
 function render() {
@@ -55,4 +63,4 @@ function render() {
 		renderTurnMessage();
 	}
 }
-// adjust per example above
+/* adjust per example above */
