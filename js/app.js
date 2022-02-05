@@ -77,7 +77,6 @@ function handleClick (event) {
   const index = event.target.id.replace('sq', '')
   boardArray[index] = turn
   render()
-
 }
 
 function checkWinner() {
