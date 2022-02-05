@@ -10,7 +10,7 @@ const players = {
   }
 };
 
-console.log(players)
+// console.log(players)
 
 const winningCombos = [ // 4.1 Array of Arrays
   [0, 1, 2],
@@ -22,8 +22,7 @@ const winningCombos = [ // 4.1 Array of Arrays
   [0, 4, 8],
   [6, 4, 2],
 ]
-console.log(winningCombos)
-
+// console.log(winningCombos)
 
 /*---------------------------- Variables (state) ----------------------------*/
 let squares, turn, winner;
@@ -45,7 +44,10 @@ squaresArray.forEach(square => square.addEventListener('click', handleClick)) //
 init() // 3.1
 
 function init() {
-    boardArray = [1, null, null, null, null, null, null, null, -1]
+    boardArray = [
+      null, null, null, 
+      null, null, null, 
+      null, null, null] // 3.2.1
     turn = 1 // 3.2.2
     gameStatus.textContent = "Time to start! It's X's turn"
     winner = null // 3.2.3
@@ -59,11 +61,11 @@ function render() {
     if (square === 1) {
       squaresArray[idx].textContent = 'X'
       squaresArray[idx].style.backgroundColor = 'red';
-      gameStatus.textContent = "It's O's turn"
+      // gameStatus.textContent = "It's O's turn"
     } else if (square === -1) {
       squaresArray[idx].textContent = 'O'
       squaresArray[idx].style.backgroundColor = 'blue';
-      gameStatus.textContent = "It's X's turn"
+      // gameStatus.textContent = "It's X's turn"
     } else if (square === null) {
       squaresArray[idx].textContent = ''
     }
@@ -72,7 +74,10 @@ function render() {
 }
 
 function handleClick (event) {
-  console.log(event.target.id)
+  const index = event.target.id.replace('sq', '')
+  boardArray[index] = turn
+  render()
+
 }
 
 function checkWinner() {
