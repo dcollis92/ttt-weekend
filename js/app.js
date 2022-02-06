@@ -93,6 +93,7 @@ function render() {
     } else if (winner === 'T') {
       message = "It's a tie! start again!"
     }
+    
 }
 // MESSAGES DO NOT CHANGE
 // apply 1 second delay before Message's change
@@ -107,18 +108,28 @@ function handleClick (event) {
   }
   boardArray[index] = turn
   if (turn === 1) { 
-    message = "It's X's Turn"
-  } else if (turn === -1) {
     message = "It's O's Turn"
+  } else if (turn === -1) {
+    message = "It's X's Turn"
   }
   turn *= -1 // 5.5
+  getWinner()
   render()
 }
 
+
 function getWinner() {
-  for (let i = 0; i <= winningCombos.length; i++) {
-    winner = getWinner[i]
-  }
+  winningCombos.forEach((combo) => {
+   if (boardArray[combo[0]]+
+       boardArray[combo[1]]+
+       boardArray[combo[2]] === 3) {
+        message = "Congrats! X won!"
+   } else if (boardArray[combo[0]]+
+              boardArray[combo[1]]+
+              boardArray[combo[2]] === -3) {
+        message = "Congrats! O won!"
+        }
+  })
 
   render ()
 }
