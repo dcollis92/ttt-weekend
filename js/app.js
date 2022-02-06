@@ -10,8 +10,6 @@ const players = {
   }
 };
 
-// console.log(players)
-
 const winningCombos = [ // 4.1 Array of Arrays
   [0, 1, 2],
   [3, 4, 5],
@@ -22,7 +20,6 @@ const winningCombos = [ // 4.1 Array of Arrays
   [0, 4, 8],
   [6, 4, 2],
 ]
-// console.log(winningCombos)
 
 /*---------------------------- Variables (state) ----------------------------*/
 let squares, turn, winner, T, seconds, tickInterval, waitingForTimeout, turnCount;
@@ -31,7 +28,7 @@ let squares, turn, winner, T, seconds, tickInterval, waitingForTimeout, turnCoun
 /*------------------------ Cached Element References ------------------------*/
 const squaresArray = document.querySelectorAll('.square') // 2.1 Squares Array
 const gameStatus = document.querySelector('#message') // 2.2
-const resetDiv = document.getElementById('reset-div')
+const resetDiv = document.getElementById('reset-div') // 6.2
 const resetBtn = document.querySelector('#reset-button') // 6.2
 
 
@@ -39,12 +36,8 @@ const resetBtn = document.querySelector('#reset-button') // 6.2
 squaresArray.forEach(square => square.addEventListener('click', handleClick)) 
  // 3.2.1
 
-//  resetDiv.addEventListener('click', init) // whut dis
+resetBtn.addEventListener('click', init) // 6.3   
 
-// resetBtn.addEventListener('click', ) 
-//     resetDiv.classList.remove("hidden")
-
-// RESET DOES NOT WORK, JACKSON HELP
 // WHY ARE THE ARRAYS UNALLIGNED HELP ME JACKSON
 
 /*-------------------------------- Functions --------------------------------*/
@@ -83,24 +76,10 @@ function render() {
       squaresArray[idx].style.backgroundColor = 'blue';
     } else if (square === null) {
       squaresArray[idx].textContent = ''
+      squaresArray[idx].style.backgroundColor = ''
     }
   });
-    
-    // if (winner !== null) {
-    //   message = `It's ${players} turn`
-    // } else if (winner === 1) {
-    //   message = "Congrats! X won!"
-    // } else if (winner === -1) {
-    //   message = "Congrats! O won!"
-    // } else if (winner === 'T') {
-    //   message = "It's a tie! start again!"
-    // }
-    
 }
-// messages are alternating by turn
-// winner is selected when 3 or -3 is reached
-// BUT need to get the game to stop once winner is reached
-// need to figure out how to define a tie
 
 function handleClick (event) {
   const index = event.target.id.replace('sq', '') // 5.4
@@ -117,35 +96,31 @@ function handleClick (event) {
   turnCount += 1
   getWinner()
   render()
-  
+  resetDiv.classList.remove("hidden")
+  console.log(turnCount)
 }
 
 
 function getWinner() {
   winningCombos.forEach((combo) => {
-    console.log('Check', (boardArray[combo[0]]+
-      boardArray[combo[1]]+
-      boardArray[combo[2]]))
    if (boardArray[combo[0]]+
        boardArray[combo[1]]+
        boardArray[combo[2]] === 3) {
         message = "Congrats! X won!"
+        
    } else if (boardArray[combo[0]]+
               boardArray[combo[1]]+
               boardArray[combo[2]] === -3) {
         message = "Congrats! O won!"
-   } else if (turnCount === 7) {
+       
+   } else if (turnCount === 9) {
         message = "It's a Tie!"
         // stop game play and allow player to reset
    }
-   
-  //  else if (boardArray[i] !== null) {
-
-  //  }
   })
-  // if (T !== 3 && !== -3 && )
-
+  
   render ()
+  
 }
 // DOES NOT WORK HELP ME JACKSON
 
