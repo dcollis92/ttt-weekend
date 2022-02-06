@@ -107,12 +107,12 @@ function getWinner() {
        boardArray[combo[1]]+
        boardArray[combo[2]] === 3) {
         message = "Congrats! X won!"
-        
+        confetti.start(2000)
    } else if (boardArray[combo[0]]+
               boardArray[combo[1]]+
               boardArray[combo[2]] === -3) {
         message = "Congrats! O won!"
-       
+       confetti.start(2000)
    } else if (turnCount === 9) {
         message = "It's a Tie!"
         // stop game play and allow player to reset
@@ -123,5 +123,6 @@ function getWinner() {
   
 }
 // DOES NOT WORK HELP ME JACKSON
+
 
 // Need to get Confetti to work once Winner is chosen
