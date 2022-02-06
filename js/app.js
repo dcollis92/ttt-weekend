@@ -39,7 +39,6 @@ console.log(squaresArray)
 
 squaresArray.forEach(square => square.addEventListener('click', handleClick)) // 3.2.1
 
-
 /*-------------------------------- Functions --------------------------------*/
 init() // 3.1
 
@@ -61,33 +60,41 @@ function render() {
     if (square === 1) {
       squaresArray[idx].textContent = 'X'
       squaresArray[idx].style.backgroundColor = 'red';
-      // gameStatus.textContent = "It's O's turn"
     } else if (square === -1) {
       squaresArray[idx].textContent = 'O'
       squaresArray[idx].style.backgroundColor = 'blue';
-      // gameStatus.textContent = "It's X's turn"
     } else if (square === null) {
       squaresArray[idx].textContent = ''
     }
   });
-    
+    if (winner !== null) {
+      gameStatus.textContent = `It's ${players} turn`
+    } else if (winner === 1) {
+      gameStatus.textContent = "Congrats! X won!"
+    } else if (winner === -1) {
+      gameStatus. textContent = "Congrats! O won!"
+    } else if (winner === 'T') {
+      gameStatus.textContent = "It's a tie! start again!"
+    }
 }
 
 function handleClick (event) {
-  const index = event.target.id.replace('sq', '')
+  console.log(event.target.id)
+  const index = event.target.id.replace('sq', '') // 5.4
+  if (boardArray[index] !== null) { // 5.2
+    return
+  }
   boardArray[index] = turn
+  turn *= -1 // 5.5
   render()
 }
 
-function checkWinner() {
-  if (!isWinner) {
-    // indicate whose turn it is
-  } else if (winner === "T") {
-    // indicate a tie game
-  } else {
-    // congrats to the winner!
-    gameMessage.textContent ='Congrats '
+function getWinner() {
+  for (let i = 0; i <= winningCombos.length; i++) {
+    winner = getWinner[i]
   }
+ 
 }
+console.log(winningCombos)
 
 

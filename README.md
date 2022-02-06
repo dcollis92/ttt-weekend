@@ -49,18 +49,18 @@
 
 // 5) Wait for click on a square, call a handleClick function
   // handleClick function will...
-  // 5.1) Obtain the index of the square that was clicked by:
-	  // 5.1.1) "Extracting" the index from square id assigned 
+  <!-- // 5.1) Obtain the index of the square that was clicked by:
+	  // 5.1.1) "Extracting" the index from square id assigned  -->
 		// Hint: Each id corresponds with an index in our board array, 
     //       how could these be used if we cleaned them up a bit?
 
-	// 5.2) If the board has a value at the index, return because that square is already taken.
+	<!-- // 5.2) If the board has a value at the index, return because that square is already taken. -->
 
 	// 5.3) If winner is not null, immediately return because the game is over.
 
-	// 5.4) Update the board array at the index with the value of turn.
+	<!-- // 5.4) Update the board array at the index with the value of turn. -->
 
-	// 5.5) Change the turn by multiplying turn by -1 (this flips a 1 to -1, and vice-versa).
+	<!-- // 5.5) Change the turn by multiplying turn by -1 (this flips a 1 to -1, and vice-versa). -->
 
 	// 5.6) Set the winner variable if there's a winner by calling a new function: getWinner.
 	  // The getWinner function will...
