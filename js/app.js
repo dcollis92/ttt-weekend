@@ -25,7 +25,7 @@ const winningCombos = [ // 4.1 Array of Arrays
 // console.log(winningCombos)
 
 /*---------------------------- Variables (state) ----------------------------*/
-let squares, turn, winner, T, seconds, tickInterval, waitingForTimeout;
+let squares, turn, winner, T, seconds, tickInterval, waitingForTimeout, turnCount;
     // 1.1 // 1.2 // 1.3
 
 /*------------------------ Cached Element References ------------------------*/
@@ -57,6 +57,7 @@ function init() {
         null, null, null ] // 3.2.1
     message = "let X starts the game"
     turn = 1 // 3.2.2
+    turnCount = 0
     winner = null // 3.2.3
     T = 'tie'
     waitingForTimeout = false
@@ -84,22 +85,22 @@ function render() {
       squaresArray[idx].textContent = ''
     }
   });
-    if (winner !== null) {
-      message = `It's ${players} turn`
-    } else if (winner === 1) {
-      message = "Congrats! X won!"
-    } else if (winner === -1) {
-      message = "Congrats! O won!"
-    } else if (winner === 'T') {
-      message = "It's a tie! start again!"
-    }
+    
+    // if (winner !== null) {
+    //   message = `It's ${players} turn`
+    // } else if (winner === 1) {
+    //   message = "Congrats! X won!"
+    // } else if (winner === -1) {
+    //   message = "Congrats! O won!"
+    // } else if (winner === 'T') {
+    //   message = "It's a tie! start again!"
+    // }
     
 }
-// MESSAGES DO NOT CHANGE
-// apply 1 second delay before Message's change
-//setTimeout(function(){
-//   gameStatus.textContent = message
-// }, 1000)
+// messages are alternating by turn
+// winner is selected when 3 or -3 is reached
+// BUT need to get the game to stop once winner is reached
+// need to figure out how to define a tie
 
 function handleClick (event) {
   const index = event.target.id.replace('sq', '') // 5.4
@@ -113,13 +114,18 @@ function handleClick (event) {
     message = "It's X's Turn"
   }
   turn *= -1 // 5.5
+  turnCount += 1
   getWinner()
   render()
+  
 }
 
 
 function getWinner() {
   winningCombos.forEach((combo) => {
+    console.log('Check', (boardArray[combo[0]]+
+      boardArray[combo[1]]+
+      boardArray[combo[2]]))
    if (boardArray[combo[0]]+
        boardArray[combo[1]]+
        boardArray[combo[2]] === 3) {
@@ -128,8 +134,16 @@ function getWinner() {
               boardArray[combo[1]]+
               boardArray[combo[2]] === -3) {
         message = "Congrats! O won!"
-        }
+   } else if (turnCount === 7) {
+        message = "It's a Tie!"
+        // stop game play and allow player to reset
+   }
+   
+  //  else if (boardArray[i] !== null) {
+
+  //  }
   })
+  // if (T !== 3 && !== -3 && )
 
   render ()
 }
