@@ -25,7 +25,7 @@ const winningCombos = [ // 4.1 Array of Arrays
 // console.log(winningCombos)
 
 /*---------------------------- Variables (state) ----------------------------*/
-let squares, turn, winner, seconds, tickInterval, waitingForTimeout;
+let squares, turn, winner, T, seconds, tickInterval, waitingForTimeout;
     // 1.1 // 1.2 // 1.3
 
 /*------------------------ Cached Element References ------------------------*/
@@ -34,15 +34,18 @@ const gameStatus = document.querySelector('#message') // 2.2
 const resetDiv = document.getElementById('reset-div')
 const resetBtn = document.querySelector('#reset-button') // 6.2
 
-/*----------------------------- Event Listeners -----------------------------*/
-squaresArray.forEach(square => square.addEventListener('click', handleClick)) // 3.2.1
 
-resetBtn.addEventListener('click', function (evt) {
-  if (evt.target.classList.contains("square")) {
-    resetDiv.classList.remove("hidden")
-  }
-})
-// DOES NOT WORK
+/*----------------------------- Event Listeners -----------------------------*/
+squaresArray.forEach(square => square.addEventListener('click', handleClick)) 
+ // 3.2.1
+
+//  resetDiv.addEventListener('click', init) // whut dis
+
+// resetBtn.addEventListener('click', ) 
+//     resetDiv.classList.remove("hidden")
+
+// RESET DOES NOT WORK, JACKSON HELP
+// WHY ARE THE ARRAYS UNALLIGNED HELP ME JACKSON
 
 /*-------------------------------- Functions --------------------------------*/
 init() // 3.1
@@ -55,6 +58,7 @@ function init() {
     message = "let X starts the game"
     turn = 1 // 3.2.2
     winner = null // 3.2.3
+    T = 'tie'
     waitingForTimeout = false
     seconds = 0
     clearInterval(tickInterval)
@@ -81,22 +85,32 @@ function render() {
     }
   });
     if (winner !== null) {
-      gameStatus.textContent = `It's ${players} turn`
+      message = `It's ${players} turn`
     } else if (winner === 1) {
-      gameStatus.textContent = "Congrats! X won!"
+      message = "Congrats! X won!"
     } else if (winner === -1) {
-      gameStatus. textContent = "Congrats! O won!"
+      message = "Congrats! O won!"
     } else if (winner === 'T') {
-      gameStatus.textContent = "It's a tie! start again!"
+      message = "It's a tie! start again!"
     }
 }
+// MESSAGES DO NOT CHANGE
+// apply 1 second delay before Message's change
+//setTimeout(function(){
+//   gameStatus.textContent = message
+// }, 1000)
 
 function handleClick (event) {
   const index = event.target.id.replace('sq', '') // 5.4
   if (boardArray[index] !== null) { // 5.2
-    return
+    return // is this the best way to structure this?
   }
   boardArray[index] = turn
+  if (turn === 1) { 
+    message = "It's X's Turn"
+  } else if (turn === -1) {
+    message = "It's O's Turn"
+  }
   turn *= -1 // 5.5
   render()
 }
@@ -105,8 +119,9 @@ function getWinner() {
   for (let i = 0; i <= winningCombos.length; i++) {
     winner = getWinner[i]
   }
- 
+
+  render ()
 }
-console.log(winningCombos)
+// DOES NOT WORK HELP ME JACKSON
 
-
+// Need to get Confetti to work once Winner is chosen
