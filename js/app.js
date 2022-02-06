@@ -26,7 +26,7 @@ let squares, turn, winner, T, seconds, tickInterval, waitingForTimeout, turnCoun
     // 1.1 // 1.2 // 1.3
 
 /*------------------------ Cached Element References ------------------------*/
-const squaresArray = document.querySelectorAll('.square') // 2.1 Squares Array
+const squaresArray = document.querySelectorAll('.square') // 2.1 
 const gameStatus = document.querySelector('#message') // 2.2
 const resetDiv = document.getElementById('reset-div') // 6.2
 const resetBtn = document.querySelector('#reset-button') // 6.2
@@ -48,7 +48,7 @@ function init() {
       [ null, null, null, 
         null, null, null, 
         null, null, null ] // 3.2.1
-    message = "let X starts the game"
+    message = "Let X start the game"
     turn = 1 // 3.2.2
     turnCount = 0
     winner = null // 3.2.3
@@ -83,8 +83,11 @@ function render() {
 
 function handleClick (event) {
   const index = event.target.id.replace('sq', '') // 5.4
+  if (winner) {
+    return
+  }
   if (boardArray[index] !== null) { // 5.2
-    return // is this the best way to structure this?
+    return 
   }
   boardArray[index] = turn
   if (turn === 1) { 
@@ -100,29 +103,25 @@ function handleClick (event) {
   console.log(turnCount)
 }
 
-
 function getWinner() {
-  winningCombos.forEach((combo) => {
-   if (boardArray[combo[0]]+
+  winningCombos.forEach((combo) => { // 5.6.1.1
+   if (boardArray[combo[0]]+ // 5.6.1.2
        boardArray[combo[1]]+
-       boardArray[combo[2]] === 3) {
-        message = "Congrats! X won!"
+       boardArray[combo[2]] === 3) { // 5.6.1.4
+        message = "Congrats! X won!" 
+        winner = 1
         confetti.start(2000)
    } else if (boardArray[combo[0]]+
               boardArray[combo[1]]+
               boardArray[combo[2]] === -3) {
+        winner = -1
         message = "Congrats! O won!"
-       confetti.start(2000)
-   } else if (turnCount === 9) {
-        message = "It's a Tie!"
-        // stop game play and allow player to reset
+        confetti.start(2000)
+   } else if (turnCount === 9) { // 5.6.3
+              winner = 'T' // 5.6.4
+        message = "It's a Tie! Play again?"
    }
   })
-  
-  render ()
-  
+  render()
 }
-// DOES NOT WORK HELP ME JACKSON
 
-
-// Need to get Confetti to work once Winner is chosen

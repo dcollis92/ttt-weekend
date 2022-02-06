@@ -72,17 +72,17 @@
      //  
      // Choose between 1 or 2
     
-		  // 5.6.1.1) Loop through the each of the winning combination arrays defined.
-		  // 5.6.1.2) Total up the three board positions using the three indexes in the current combo.
+		  // X 5.6.1.1) Loop through the each of the winning combination arrays defined.
+		  // X 5.6.1.2) Total up the three board positions using the three indexes in the current combo.
 		  // 5.6.1.3) Convert the total to an absolute value (convert any negative total to positive).
-		  // 5.6.1.4) If the total equals 3, we have a winner! Set the winner variable to the board's value at the index specified by the first index of that winning combination's array by returning that value.
+		  // X 5.6.1.4) If the total equals 3, we have a winner! Set the winner variable to the board's value at the index specified by the first index of that winning combination's array by returning that value.
 
-		  // 5.6.2.1) For each winning combination from step 4, find the total of each winning combination.
+		  <!-- // 5.6.2.1) For each winning combination from step 4, find the total of each winning combination.
 		  // 5.6.2.2) Convert the total to an absolute value (convert any negative total to positive)
-		  // 5.6.2.3) If the total equals 3, we have a winner! Set the winner variable to the board's value at the index specified by the first index of that winning combination's array by returning that value.
+		  // 5.6.2.3) If the total equals 3, we have a winner! Set the winner variable to the board's value at the index specified by the first index of that winning combination's array by returning that value. -->
 
-		// 5.6.3) Next, If there's no winner, check if there's a tie:
-    // 5.6.4) Set the winner varible to "T" if there are no more nulls in the board array by returning the string "T".
+		// X 5.6.3) Next, If there's no winner, check if there's a tie:
+    // X 5.6.4) Set the winner varible to "T" if there are no more nulls in the board array by returning the string "T".
 	  // 5.6.5) Otherwise return null.
 
 // 5.7) All state has been updated, render the state to the page (step 3.3).
