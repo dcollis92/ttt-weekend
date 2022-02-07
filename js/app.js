@@ -117,7 +117,7 @@ function getWinner() {
         winner = -1
         message = "Congrats! O won!"
         confetti.start(2000)
-   } else if (turnCount === 9) { // 5.6.3
+   } else if (turnCount === 9 && !winner) { // 5.6.3
               winner = 'T' // 5.6.4
         message = "It's a Tie! Play again?"
    }
